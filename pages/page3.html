@@ -9,7 +9,7 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="/script/angular.min.js"></script>
-    <script src="/script/diapp.js"></script>
+    <script src="/script/minific.js"></script>
     <link rel="stylesheet" href="/styles/main.css">
 
   </head>
@@ -25,15 +25,17 @@
           <li ><a href="/index.html">Home</a></li>
           <li><a href="page1.html">exo name calculator</a></li>
           <li class="active"><a href="page2.html">Depency injection</a></li>
-          <li><a href="page3.html">Page 3</a></li>
+          <li><a href="page3.html">minification</a></li>
         </ul>
       </div>
     </nav>
   </div>
     <div class="container" >
-<div ng-app="DIApp">
-  <h1>Depency injection in javascript(élément dans l'input en maj.)</h1>
-    <div ng-controller="DIController">
+<div ng-app="MiniFic">
+  <h1>minification du code javascript</h1>
+  <p>il faut copier son code javascript et le minifier sur ce site puis on le copie dans fichier js correspondant!
+    https://javascript-minifier.com/<p>
+    <div ng-controller="MiniFicController">
       <div>
         Your name:
         <input type="text"
