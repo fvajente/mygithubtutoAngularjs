@@ -9,8 +9,8 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
     <script src="/script/angular.min.js"></script>
-    <script src="/script/minific.js"></script>
 
+    <script src="/script/interpolation.js"></script>
     <link rel="stylesheet" href="/styles/main.css">
 
   </head>
@@ -25,32 +25,33 @@
         <ul class="nav navbar-nav">
           <li ><a href="/index.html">Home</a></li>
           <li><a href="page1.html">Name calculator</a></li>
-          <li ><a href="page2.html">Depency injection</a></li>
-          <li class="active"><a href="page3.html">Minification</a></li>
-          <li><a href="page4.html">Expression and Interpolation</a></li>
+          <li><a href="page2.html">Depency injection</a></li>
+          <li ><a href="page3.html">Minification</a></li>
+          <li class="active"><a href="page4.html">Expression and Interpolation</a></li>
         </ul>
       </div>
     </nav>
   </div>
-    <div class="container" >
-<div ng-app="MiniFic">
-  <h1>Minification du code javascript</h1>
-  <p>il faut copier son code javascript et le minifier sur ce site puis on le copie dans fichier js correspondant!
-  </br><a href="https://javascript-minifier.com/">Lien site pour minifier</a></p>
-  <p>Un exemple de codes pour écrire une dépendance d'injection, les deux sont vrais.</br>
-    Mais, l'exemple deux est plus courant car plus simple à lire.
-    <img src="/images/minification.PNG" alt="pic exemple de code" />
-  </p>
-    <div ng-controller="MiniFicController">
-      <div>
-        Your name:
-        <input type="text"
-          ng-model="name"
-          ng-blur="upper();">
+  <div class="container" >
+
+    <div ng-app="Interpolation">
+      <h1>Expressions and Interpolation</h1>
+      <div ng-controller="InterpolationController">
+        <h2>Qu'est-ce que t'aimes faire   {{nom}}?</h2>
+        </br>
+        <p>Message is : {{sayMessage()}}<p>
+        </br>
+        <div>
+          <button ng-click= "tripFabrice()">Voyage Fabrice</button>
+          Cost : {{ tripCost | currency : "€" : 2 }}
+        </br>
+        <img ng-src="/images/fabrice_{{stateOfBeing}}.jpg" alt="" />
+        </div>
         </div>
       </div>
-    </div>
 </div>
+
+
     <div class="footer">
       <div class="container">
       <span>tutofab@2017</span>
