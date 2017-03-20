@@ -10,9 +10,9 @@
 
     <script src="../script/angular.min.js"></script>
 
-    <script src="../script/shopList.js"></script>
+    <script src="../script/directiveshop.js"></script>
     <link rel="stylesheet" href="../styles/main.css">
-      <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
   </head>
 
   <body>
@@ -28,47 +28,41 @@
           <li><a href="page2.html">Depency injection</a></li>
           <li ><a href="page3.html">Minification</a></li>
           <li><a href="page4.html">Expression and Interpolation</a></li>
-          <li class="active"><a href="page5.html">Shopping list</a></li>
+          <li><a href="page5.html">Shopping list</a></li>
           <li><a href="page6.html">Custom service</a></li>
           <li><a href="page7.html">Custom service factory</a></li>
-          <li><a href="page8.html">Template Expanding Directive</a></li>
+          <li class="active"><a href="page8.html">Template Expanding Directive</a></li>
         </ul>
       </div>
     </nav>
   </div>
   <div class="container" >
-    <div ng-app='ShoppingListApp'>
-      <h1>ng-repeat</h1>
-     <div ng-controller='ShoppingListController'>
-       <!-- Shopping List #1: -->
-       <h3>Shopping List:</h3>
-       <!-- <ul>
-         <li ng-repeat="item in shoppingList1">{{ item }}</li>
-       </ul> -->
+    <div ng-app='ShoppingListDirectiveApp'>
+      <h1>Template Expanding Directive</h1>
 
-       <!-- Shopping List #2: -->
-       <!-- <ul>
-         <li ng-repeat="item in shoppingList2">Buy {{item.quantity}} of {{item.name}}(s)</li>
-       </ul> -->
+    <!-- LIST #1 - unlimited items -->
+    <div id="list1" ng-controller='ShoppingListController1 as list'>
+      <h3>Shopping List #1</h3>
+      <input type="text" ng-model="list.itemName" placeholder="item name">
+      <input type="text" ng-model="list.itemQuantity" placeholder="quantity">
+      <button ng-click="list.addItem();">Add Item</button>
+      <ol>
+        <list-item ng-repeat="item in list.items"></list-item>
+      </ol>
+      <div ng-if="list.errorMessage" class="error">Error: {{list.errorMessage}}</div>
+    </div>
 
-       <!-- Shopping List #3: -->
-       <input type="text" ng-model="shoppingList2[0].quantity">
-       <ul>
-         <li ng-repeat="item in shoppingList2">{{$index + 1}}. Buy {{item.quantity}} of {{item.name}}(s)</li>
-       </ul>
-       <input type="text" ng-model="newItemName" placeholder="item name">
-       <input type="text" ng-model="newItemQuantity" placeholder="item quantity">
-       <button ng-click="addToList()">Add To List</button>
-     </div>
-
-     <div ng-controller='ShoppingListController'>
-     <!-- Searchable Shopping List: -->
-     <h3>Shopping List:</h3>
-     <input type="text" ng-model="search">
-     <ul>
-       <li ng-repeat="item in shoppingList1 | filter : search">{{ item }}</li>
-     </ul>
-   </div>
+    <!-- LIST #2 (limited to 3 items) -->
+    <div id="list2" ng-controller='ShoppingListController2 as list'>
+      <h3>Shopping List #2 (limited to 3 items)</h3>
+      <input type="text" ng-model="list.itemName" placeholder="item name">
+      <input type="text" ng-model="list.itemQuantity" placeholder="quantity">
+      <button ng-click="list.addItem();">Add Item</button>
+      <ol>
+        <list-item ng-repeat="item in list.items"></list-item>
+      </ol>
+      <div ng-if="list.errorMessage" class="error">Error: {{list.errorMessage}}</div>
+    </div>
   </div>
 
 </div>
